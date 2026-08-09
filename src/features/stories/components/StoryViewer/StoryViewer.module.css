@@ -1,0 +1,233 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background-color: var(--surface-overlay);
+  height: 100dvh;
+  overflow: hidden;
+  animation: overlay-in var(--duration-medium) var(--ease-emphasis) both;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+}
+
+/* Progress bars and header fade away while the user holds the screen. */
+.chrome {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 3;
+  padding: var(--space-3) var(--space-3) var(--space-5);
+  background: var(--scrim-top);
+  transition: opacity var(--duration-fast) var(--ease-out);
+  pointer-events: none;
+}
+
+.chrome[data-held="true"] {
+  opacity: 0;
+}
+
+.chrome button {
+  pointer-events: auto;
+}
+
+/* ---- progress ---- */
+
+.progressRow {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.track {
+  flex: 1;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background-color: var(--on-media-line);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: inherit;
+  background-color: var(--on-media);
+  /* scaleX is set inline per frame by StoryProgress. */
+  transform: scaleX(0);
+  transform-origin: left center;
+  /* Composited on the GPU — no layout work per frame. */
+  will-change: transform;
+}
+
+/* ---- header ---- */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.headerAvatar {
+  width: var(--space-6);
+  height: var(--space-6);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--on-media-line);
+  flex-shrink: 0;
+}
+
+.headerText {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.username {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.timestamp {
+  font-size: var(--font-xs);
+  color: var(--on-media-dim);
+  flex-shrink: 0;
+}
+
+.closeButton {
+  margin-left: auto;
+  display: grid;
+  place-items: center;
+  width: var(--space-6);
+  height: var(--space-6);
+  border-radius: 50%;
+  color: var(--on-media);
+}
+
+/* ---- media ---- */
+
+.stage {
+  grid-row: 1 / -1;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--surface-overlay);
+}
+
+.frame {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition:
+    opacity var(--duration-medium) var(--ease-out),
+    transform var(--duration-slow) var(--ease-emphasis);
+  will-change: opacity, transform;
+}
+
+/* The incoming story slides in from the side it was navigated from. */
+.frame[data-direction="forward"] {
+  transform: translateX(3%);
+}
+
+.frame[data-direction="backward"] {
+  transform: translateX(-3%);
+}
+
+/* Must follow the direction rules — equal specificity, so order decides. */
+.frame[data-visible="true"] {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* The outgoing story stays put underneath until the next one has decoded. */
+.frame[data-role="outgoing"] {
+  z-index: 1;
+}
+
+.frame[data-role="incoming"] {
+  z-index: 2;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-user-drag: none;
+}
+
+.mediaStatus {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  gap: var(--space-3);
+  color: var(--on-media-dim);
+  pointer-events: none;
+}
+
+.mediaError {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  text-align: center;
+  font-size: var(--font-sm);
+  color: var(--on-media-dim);
+}
+
+.caption {
+  position: absolute;
+  z-index: 3;
+  inset: auto 0 0 0;
+  padding: var(--space-6) var(--space-4) calc(var(--space-5) + env(safe-area-inset-bottom));
+  background: var(--scrim-bottom);
+  line-height: var(--leading-body);
+  transition: opacity var(--duration-fast) var(--ease-out);
+  pointer-events: none;
+}
+
+.caption[data-held="true"] {
+  opacity: 0;
+}
+
+/* ---- tap zones ---- */
+
+.tapZones {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.tapZone {
+  height: 100%;
+  width: 100%;
+  /* Invisible, but a real button: reachable by keyboard and screen readers. */
+  background: transparent;
+}
+
+.pausedBadge {
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  bottom: calc(var(--space-6) + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  background-color: var(--scrim);
+  font-size: var(--font-xs);
+  text-transform: uppercase;
+  color: var(--on-media-dim);
+  pointer-events: none;
+}

@@ -1,0 +1,94 @@
+.tray {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.tray::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+  width: var(--ring-size);
+}
+
+.ring {
+  display: grid;
+  place-items: center;
+  width: var(--ring-size);
+  height: var(--ring-size);
+  border-radius: 50%;
+  background: var(--ring-gradient);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.item[data-seen="true"] .ring {
+  background: var(--ring-seen);
+}
+
+.item:active .ring {
+  transform: scale(0.96);
+}
+
+/* The inner gap that makes the gradient read as a ring. */
+.avatarWrapper {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+  padding: 2px;
+  background-color: var(--surface-canvas);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--surface-raised);
+}
+
+.username {
+  max-width: 100%;
+  font-size: var(--font-xs);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item[data-seen="false"] .username {
+  color: var(--text-primary);
+}
+
+/* ---- skeleton: same geometry as above, so nothing shifts on load ---- */
+
+.skeletonRing {
+  width: var(--ring-size);
+  height: var(--ring-size);
+  border-radius: 50%;
+}
+
+.skeletonLabel {
+  width: var(--avatar-size);
+  height: var(--space-2);
+  border-radius: var(--radius-pill);
+}
+
+.skeletonRing,
+.skeletonLabel {
+  background-color: var(--surface-raised);
+  animation: pulse var(--duration-slow) var(--ease-out) infinite alternate;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 0.4;
+  }
+}
