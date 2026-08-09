@@ -1,0 +1,13 @@
+/* Width and height come from the inline `size` prop. */
+.spinner {
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, currentColor 25%, transparent);
+  border-top-color: currentColor;
+  animation: spin var(--duration-slow) linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
