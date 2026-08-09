@@ -1,0 +1,123 @@
+[
+  {
+    "id": "u1",
+    "username": "maya.kapoor",
+    "avatarUrl": "/assets/stories/avatars/u1.jpg",
+    "items": [
+      {
+        "id": "u1-s1",
+        "imageUrl": "/assets/stories/u1-1.jpg",
+        "caption": "Golden hour on the ridge",
+        "publishedAt": "2026-08-09T06:12:00.000Z"
+      },
+      {
+        "id": "u1-s2",
+        "imageUrl": "/assets/stories/u1-2.jpg",
+        "caption": "Still climbing",
+        "publishedAt": "2026-08-09T07:40:00.000Z"
+      },
+      {
+        "id": "u1-s3",
+        "imageUrl": "/assets/stories/u1-3.jpg",
+        "caption": "Worth every step",
+        "publishedAt": "2026-08-09T09:05:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "u2",
+    "username": "arjun.builds",
+    "avatarUrl": "/assets/stories/avatars/u2.jpg",
+    "items": [
+      {
+        "id": "u2-s1",
+        "imageUrl": "/assets/stories/u2-1.jpg",
+        "caption": "Studio, 6am",
+        "publishedAt": "2026-08-09T04:30:00.000Z"
+      },
+      {
+        "id": "u2-s2",
+        "imageUrl": "/assets/stories/u2-2.jpg",
+        "caption": "Shipping today",
+        "publishedAt": "2026-08-09T11:15:00.000Z"
+      },
+      {
+        "id": "u2-s3",
+        "imageUrl": "/assets/stories/u2-3.jpg",
+        "publishedAt": "2026-08-09T13:02:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "u3",
+    "username": "lena.frost",
+    "avatarUrl": "/assets/stories/avatars/u3.jpg",
+    "items": [
+      {
+        "id": "u3-s1",
+        "imageUrl": "/assets/stories/u3-1.jpg",
+        "caption": "Cold morning, warm coffee",
+        "publishedAt": "2026-08-09T05:55:00.000Z"
+      },
+      {
+        "id": "u3-s2",
+        "imageUrl": "/assets/stories/u3-2.jpg",
+        "publishedAt": "2026-08-09T08:20:00.000Z"
+      },
+      {
+        "id": "u3-s3",
+        "imageUrl": "/assets/stories/u3-3.jpg",
+        "caption": "Fog never lifted",
+        "publishedAt": "2026-08-09T10:48:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "u4",
+    "username": "tomiwa.a",
+    "avatarUrl": "/assets/stories/avatars/u4.jpg",
+    "items": [
+      {
+        "id": "u4-s1",
+        "imageUrl": "/assets/stories/u4-1.jpg",
+        "caption": "Detour worth taking",
+        "publishedAt": "2026-08-09T03:10:00.000Z"
+      },
+      {
+        "id": "u4-s2",
+        "imageUrl": "/assets/stories/u4-2.jpg",
+        "publishedAt": "2026-08-09T12:26:00.000Z"
+      },
+      {
+        "id": "u4-s3",
+        "imageUrl": "/assets/stories/u4-3.jpg",
+        "caption": "Last light",
+        "publishedAt": "2026-08-09T14:44:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "u5",
+    "username": "sofia.vega",
+    "avatarUrl": "/assets/stories/avatars/u5.jpg",
+    "items": [
+      {
+        "id": "u5-s1",
+        "imageUrl": "/assets/stories/u5-1.jpg",
+        "caption": "Found the quiet street",
+        "publishedAt": "2026-08-09T02:05:00.000Z"
+      },
+      {
+        "id": "u5-s2",
+        "imageUrl": "/assets/stories/u5-2.jpg",
+        "caption": "Blue hour",
+        "publishedAt": "2026-08-09T15:30:00.000Z"
+      },
+      {
+        "id": "u5-s3",
+        "imageUrl": "/assets/stories/u5-3.jpg",
+        "publishedAt": "2026-08-09T16:12:00.000Z"
+      }
+    ]
+  }
+]
