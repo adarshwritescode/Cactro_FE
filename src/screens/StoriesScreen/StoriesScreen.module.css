@@ -1,0 +1,36 @@
+.screen {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding-top: env(safe-area-inset-top);
+}
+
+.topBar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-4) var(--space-1);
+}
+
+.wordmark {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+}
+
+.count {
+  font-size: var(--font-xs);
+  color: var(--text-secondary);
+}
+
+/* The space below the tray. */
+.quotes {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-5);
+  padding: var(--space-6) var(--space-5);
+  line-height: var(--leading-body);
+  color: var(--text-secondary);
+}
